@@ -1,5 +1,10 @@
 package com.example.backend.domain.songs;
 
+import com.example.backend.domain.Genre;
+import com.example.backend.domain.albums.Album;
+import com.example.backend.domain.albums.AlbumRepository;
+import com.example.backend.domain.producers.Producer;
+import com.example.backend.domain.producers.ProducerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +18,23 @@ public class SongRepositoryTest {
 
     @Autowired
     SongRepository songsRepository;
+    @Autowired
+    ProducerRepository producerRepository;
+
+    @Autowired
+    AlbumRepository albumRepository;
 
     @Test
-    public void SONGS_CREATE_TEST() {
-//        songsRepository.save(Song.builder().song_name("테스트송").genre(Genre.BALLAD).build());
-//
-//        Song song = songsRepository.findById(1L).orElseThrow(RuntimeException::new);
-//
-//        System.out.println(song.getGenre());
-//        assertThat(song.getGenre()).isEqualTo(Genre.BALLAD);
+    public void 곡_생성_테스트() {
+        // given
+        Producer producer = producerRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 프로듀서가 없습니다"));
+        Album album = albumRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 앨범이 없습니다."));
 
+        // when
+        songsRepository.save(Song.builder().genre(Genre.BALLAD).songName("좋은 날23").singer(producer).album(album).build());
+
+        // then
+        Song song = songsRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 곡이 없습니다."));
     }
 
 }

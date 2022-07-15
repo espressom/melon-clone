@@ -16,21 +16,33 @@ import java.util.List;
 public class ProducerRepositoryTest {
 
     @Autowired
-    ProducerRepository producersRepository;
+    ProducerRepository producerRepository;
 
 //    @After
     public void cleanUp() {
-        producersRepository.deleteAll();
+        producerRepository.deleteAll();
     }
 
     @Test
-    public void PRODUCER_CREATE_TEST() {
-        producersRepository.save(Producer.builder().password("1").position(Position.ARRANGER).name("테스트").gender(Gender.FEMALE).email("example323").build());
+    public void 프로듀서_생성_테스트() {
+        producerRepository.save(Producer.builder().password("1").position(Position.ARRANGER).name("테스트").gender(Gender.FEMALE).email("exampl2sdfsddddde").build());
 
-        List<Producer> producerList = producersRepository.findAll();
+        List<Producer> producerList = producerRepository.findAll();
 
         Producer producer = producerList.get(0);
         System.out.println(producer);
+    }
+
+    @Test
+    public void 프로듀서_아이디로_읽기_테스트() {
+        Producer producer = producerRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 프로듀서가 없습니다"));
+
+    }
+
+    @Test
+    public void 프로듀서_앨범목록_가져오기_테스트() {
+        Producer producer = producerRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 프로듀서가 없습니다"));
+        producer.getAlbums().forEach( album -> System.out.println(album.getName()) );
     }
 
 }

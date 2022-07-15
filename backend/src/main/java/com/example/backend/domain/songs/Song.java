@@ -4,6 +4,7 @@ import com.example.backend.domain.BaseTime;
 import com.example.backend.domain.Genre;
 import com.example.backend.domain.albums.Album;
 import com.example.backend.domain.producers.Producer;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,15 +24,19 @@ public class Song extends BaseTime {
     private String songName;
 
     @ManyToOne
+    @JoinColumn(name = "composer_id")
     private Producer composer;
 
     @ManyToOne
+    @JoinColumn(name = "lyricist_id")
     private Producer lyricist;
 
     @ManyToOne
+    @JoinColumn(name = "arranger_id")
     private Producer arranger;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "singer_id")
     private Producer singer;
 
     private String lyric;
@@ -39,11 +44,25 @@ public class Song extends BaseTime {
     private int totalLikeSum;
 
     @ManyToOne(optional = false)
-    private Album albums;
+    @JoinColumn(name = "album_id")
+    private Album album;
 
-    private boolean isValid;
+    private boolean isValid = true;
 
     @Enumerated(value=EnumType.STRING)
     private Genre genre;
 
+    @Builder
+    public Song(String songName, Producer composer, Producer lyricist, Producer arranger, Producer singer, String lyric, int totalLikeSum, Album album, boolean isValid, Genre genre) {
+        this.songName = songName;
+        this.composer = composer;
+        this.lyricist = lyricist;
+        this.arranger = arranger;
+        this.singer = singer;
+        this.lyric = lyric;
+        this.totalLikeSum = totalLikeSum;
+        this.album = album;
+        this.isValid = isValid;
+        this.genre = genre;
+    }
 }

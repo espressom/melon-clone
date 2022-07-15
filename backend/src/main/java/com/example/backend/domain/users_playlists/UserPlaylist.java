@@ -18,6 +18,7 @@ public class UserPlaylist extends BaseTime {
     private Long id;
 
     @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
 }
