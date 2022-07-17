@@ -1,4 +1,6 @@
 package com.example.backend.domain.playlists;
 
-public interface PlaylistRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PlaylistRepository extends JpaRepository<Playlist, Long>, PlaylistRepositoryCustom {
 }

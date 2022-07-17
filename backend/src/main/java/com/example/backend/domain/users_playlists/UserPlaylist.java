@@ -2,6 +2,7 @@ package com.example.backend.domain.users_playlists;
 
 import com.example.backend.domain.BaseTime;
 import com.example.backend.domain.users.User;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,4 +22,8 @@ public class UserPlaylist extends BaseTime {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Builder
+    public UserPlaylist(User user) {
+        this.user = user;
+    }
 }

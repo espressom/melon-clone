@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SongRepositoryTest {
 
     @Autowired
-    SongRepository songsRepository;
+    SongRepository songRepository;
     @Autowired
     ProducerRepository producerRepository;
 
@@ -31,10 +31,10 @@ public class SongRepositoryTest {
         Album album = albumRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 앨범이 없습니다."));
 
         // when
-        songsRepository.save(Song.builder().genre(Genre.BALLAD).songName("좋은 날23").singer(producer).album(album).build());
+        Song song = songRepository.save(Song.builder().genre(Genre.BALLAD).songName("싫은 날").singer(producer).album(album).build());
 
         // then
-        Song song = songsRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 곡이 없습니다."));
+        songRepository.findById(song.getId()).orElseThrow(() -> new IllegalArgumentException("해당 곡이 없습니다."));
     }
 
 }
