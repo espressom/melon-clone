@@ -26,6 +26,12 @@ public class UserRepositoryTest {
     }
 
     @Test
+    public void 유저_로그인_정보_테스트() {
+        boolean res = userRepository.existsByEmailAndPassword("example", "1");
+        System.out.println(res);
+    }
+
+    @Test
     public void 유저_이름_검색_테스트() {
         User user = userRepository.findUserByName("테스트").orElseThrow(() -> new IllegalArgumentException("해당 이름을 가진 유저가 없습니다"));
         System.out.println(user.getName());
