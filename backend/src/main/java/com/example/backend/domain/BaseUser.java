@@ -30,16 +30,13 @@ public class BaseUser extends BaseTime {
 
     protected String photoUrl;
 
-    protected boolean isLoggedIn;
 
-
-    public BaseUser(String password, String email, String name, String nickname, Gender gender, String photoUrl, boolean isLoggedIn) {
+    public BaseUser(String password, String email, String name, String nickname, Gender gender, String photoUrl) {
         this.password = password;
         this.nickname = nickname;
         this.gender = gender;
         this.email = email;
         this.name = name;
         this.photoUrl = photoUrl;
-        this.isLoggedIn = isLoggedIn;
     }
 }

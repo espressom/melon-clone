@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -32,15 +33,18 @@ public class Album extends BaseTime {
     private String publisher;
     private String photoUrl;
 
+    private Date releaseDate;
+
     @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
     private List<Song> songs = new ArrayList<>();
 
     @Builder
-    public Album(String name, Producer producer, String agency, String publisher, String photoUrl) {
+    public Album(String name, Producer producer, String agency, String publisher, String photoUrl, Date releaseDate) {
         this.name = name;
         this.producer = producer;
         this.agency = agency;
         this.publisher = publisher;
         this.photoUrl = photoUrl;
+        this.releaseDate = releaseDate;
     }
 }

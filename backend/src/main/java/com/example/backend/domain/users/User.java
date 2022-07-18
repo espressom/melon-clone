@@ -21,7 +21,7 @@ public class User extends BaseUser {
     private List<UserPlaylist> userPlaylists = new ArrayList<>();
 
     @Builder
-    public User(String password, String email, String name, String nickname, Gender gender, String photoUrl, boolean isLoggedIn) {
-        super(password, email, name, nickname, gender, photoUrl, isLoggedIn);
+    public User(String password, String email, String name, String nickname, Gender gender, String photoUrl) {
+        super(password, email, name, nickname, gender, photoUrl);
     }
 }

@@ -32,16 +32,6 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void 유저_로그인_여부_테스트() {
-        // given
-        User user = userRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다"));
-
-        // when
-        boolean res = userRepository.isLoggedInUser(user);
-        System.out.println(res);
-    }
-
-    @Test
     public void 유저_이름_검색_테스트() {
         User user = userRepository.findUserByName("테스트").orElseThrow(() -> new IllegalArgumentException("해당 이름을 가진 유저가 없습니다"));
         System.out.println(user.getName());

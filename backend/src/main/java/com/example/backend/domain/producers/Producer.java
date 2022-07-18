@@ -26,8 +26,8 @@ public class Producer extends BaseUser {
     private List<Album> albums = new ArrayList<>();
 
     @Builder
-    public Producer(String password, String email, String name, String nickname, Gender gender, String photoUrl, Position position, boolean isLoggedIn) {
-        super(password, email, name, nickname, gender, photoUrl, isLoggedIn);
+    public Producer(String password, String email, String name, String nickname, Gender gender, String photoUrl, Position position) {
+        super(password, email, name, nickname, gender, photoUrl);
         this.position = position;
     }
 }

@@ -1,6 +1,5 @@
 package com.example.backend.service.user;
 
-import com.example.backend.domain.users.User;
 import com.example.backend.domain.users.UserRepository;
 import com.example.backend.web.dto.UserLoginRequestDto;
 import com.example.backend.web.dto.UserSaveRequestDto;
