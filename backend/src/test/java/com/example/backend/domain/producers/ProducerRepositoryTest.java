@@ -25,7 +25,7 @@ public class ProducerRepositoryTest {
 
     @Test
     public void 프로듀서_생성_테스트() {
-        producerRepository.save(Producer.builder().password("1").position(Position.ARRANGER).name("테스트").gender(Gender.FEMALE).email("exampl2sdfsddddde").build());
+        producerRepository.save(Producer.builder().password("1").position(Position.ARRANGER).name("테스트").gender(Gender.FEMALE).email("exampletest").build());
 
         List<Producer> producerList = producerRepository.findAll();
 

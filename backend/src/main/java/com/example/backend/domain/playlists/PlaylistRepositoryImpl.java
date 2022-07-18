@@ -15,6 +15,9 @@ public class PlaylistRepositoryImpl implements PlaylistRepositoryCustom{
 
     @Override
     public List<Playlist> getSongsByUserPlaylist(UserPlaylist userPlaylist) {
-        return queryFactory.selectFrom(playlist).where(playlist.userPlaylist.eq(userPlaylist)).fetch();
+        return queryFactory
+                .selectFrom(playlist)
+                .where(playlist.userPlaylist.eq(userPlaylist))
+                .fetch();
     }
 }
