@@ -14,17 +14,17 @@ public class JWTUtil {
     private static final long AUTH_TIME = 60*10; // 10분
     private static final long REFRESH_TIME = 60*60*24*7; // 일주일
 
-    public static String makeAuthToken(User user) {
+    public static String makeAuthToken(String userEmail) {
         return JWT.create()
-                .withSubject(user.getEmail())
-                .withPayload(Map.of("userId", user.getId()))
+                .withSubject(userEmail)
+//                .withPayload(Map.of("userId", user.getId()))
                 .withExpiresAt(Instant.ofEpochSecond(Instant.now().getEpochSecond()+AUTH_TIME))
                 .sign(ALGORITHM);
     }
 
-    public static String makeRefreshToken(User user) {
+    public static String makeRefreshToken(String userEmail) {
         return JWT.create()
-                .withSubject(user.getEmail())
+                .withSubject(userEmail)
                 .withExpiresAt(Instant.ofEpochSecond(Instant.now().getEpochSecond()+REFRESH_TIME))
                 .sign(ALGORITHM);
     }
@@ -36,7 +36,7 @@ public class JWTUtil {
             return VerifyResult.builder()
                     .success(true)
                     .userEmail(decodedJWT.getSubject())
-                    .userId(decodedJWT.getClaim("userId").asLong())
+//                    .userId(decodedJWT.getClaim("userId").asLong())
                     .build();
 
         } catch (Exception ex) {
@@ -44,7 +44,7 @@ public class JWTUtil {
             return VerifyResult.builder()
                     .success(false)
                     .userEmail(decodedJWT.getSubject())
-                    .userId(decodedJWT.getClaim("userId").asLong())
+//                    .userId(decodedJWT.getClaim("userId").asLong())
                     .build();
 
         }

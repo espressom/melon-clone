@@ -9,12 +9,12 @@ public class UserRepositoryImpl implements UserRepositoryCustom{
 
     private final JPAQueryFactory queryFactory;
 
-    @Override
-    public boolean isLoggedInUser(User identifyingUser) {
-        return Boolean.TRUE.equals(queryFactory
-                .from(user)
-                .select(user.isLoggedIn)
-                .where(user.id.eq(identifyingUser.getId()))
-                .fetchOne());
-    }
+//    @Override
+//    public boolean isLoggedInUser(User identifyingUser) {
+//        return Boolean.TRUE.equals(queryFactory
+//                .from(user)
+//                .select(user.isLoggedIn)
+//                .where(user.id.eq(identifyingUser.getId()))
+//                .fetchOne());
+//    }
 }

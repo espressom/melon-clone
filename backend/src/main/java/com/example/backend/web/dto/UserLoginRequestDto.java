@@ -1,20 +1,19 @@
 package com.example.backend.web.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class UserLoginRequestDto {
 
     private String email;
     private String password;
 
-    @Builder
-    public UserLoginRequestDto(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
+//    @Builder
+//    public UserLoginRequestDto(String email, String password) {
+//        this.email = email;
+//        this.password = password;
+//    }
 
 }

@@ -2,6 +2,7 @@ package com.example.backend.domain.albums;
 
 import com.example.backend.domain.producers.Producer;
 import com.example.backend.domain.producers.ProducerRepository;
+import com.example.backend.web.dto.AlbumResponseDto;
 import com.querydsl.core.Tuple;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,9 +45,14 @@ public class AlbumRepositoryTest {
     @Test
     public void 앨범_프로듀서_조인한_전체_앨범_가져오기_테스트() {
 
-        List<Tuple> albums = albumRepository.getAllAlbumsJoinedByProducer();
+        List<AlbumResponseDto> albums = albumRepository.getAllAlbumsJoinedByProducer();
 
-        System.out.println(albums.get(0));
+        albums.forEach(albumResponseDto -> {
+            System.out.println("-------------------------");
+            System.out.print(albumResponseDto.getAlbumName());
+            System.out.print(albumResponseDto.getProducerName());
+            System.out.print(albumResponseDto.getReleaseDate());
+        });
 
     }
 

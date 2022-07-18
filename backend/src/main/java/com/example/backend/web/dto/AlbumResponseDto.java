@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Getter
 @NoArgsConstructor
 public class AlbumResponseDto {
@@ -14,11 +16,10 @@ public class AlbumResponseDto {
     private String producerName;
     private String agency;
     private String publisher;
-    private String releaseDate;
+    private Date releaseDate;
     private String photoUrl;
 
-    @Builder
-    public AlbumResponseDto(Long albumId, String albumName, Long producerId, String producerName, String agency, String publisher, String releaseDate, String photoUrl) {
+    public AlbumResponseDto(Long albumId, String albumName, Long producerId, String producerName, String agency, String publisher, Date releaseDate, String photoUrl) {
         this.AlbumId = albumId;
         this.AlbumName = albumName;
         this.producerId = producerId;

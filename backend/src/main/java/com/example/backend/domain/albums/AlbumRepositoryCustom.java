@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AlbumRepositoryCustom {
 
-    List<Tuple> getAllAlbumsJoinedByProducer();
+    List<AlbumResponseDto> getAllAlbumsJoinedByProducer();
 
 }
