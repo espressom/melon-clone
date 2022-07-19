@@ -3,10 +3,8 @@ package com.example.backend.config;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.example.backend.domain.users.User;
 
 import java.time.Instant;
-import java.util.Map;
 
 public class JWTUtil {
 
@@ -14,9 +12,10 @@ public class JWTUtil {
     private static final long AUTH_TIME = 60*10; // 10분
     private static final long REFRESH_TIME = 60*60*24*7; // 일주일
 
-    public static String makeAuthToken(String userEmail) {
+    public static String makeAuthToken(String userEmail, String role) {
         return JWT.create()
                 .withSubject(userEmail)
+                .withClaim("ROLE", role)
 //                .withPayload(Map.of("userId", user.getId()))
                 .withExpiresAt(Instant.ofEpochSecond(Instant.now().getEpochSecond()+AUTH_TIME))
                 .sign(ALGORITHM);

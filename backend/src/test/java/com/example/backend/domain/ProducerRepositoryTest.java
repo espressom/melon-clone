@@ -1,8 +1,7 @@
-package com.example.backend.domain.producers;
+package com.example.backend.domain;
 
-import com.example.backend.domain.Gender;
-import com.example.backend.domain.Position;
-import org.junit.After;
+import com.example.backend.domain.producers.Producer;
+import com.example.backend.domain.producers.ProducerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,12 @@ public class ProducerRepositoryTest {
 
         Producer producer = producerList.get(0);
         System.out.println(producer);
+    }
+
+    @Test
+    public void 프로듀서_로그인_정보_테스트() {
+        boolean res = producerRepository.existsByEmailAndPassword("example", "1");
+        System.out.println(res);
     }
 
     @Test

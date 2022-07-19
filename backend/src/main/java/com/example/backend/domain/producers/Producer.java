@@ -1,9 +1,10 @@
 package com.example.backend.domain.producers;
 
-import com.example.backend.domain.BaseUser;
 import com.example.backend.domain.Gender;
 import com.example.backend.domain.Position;
 import com.example.backend.domain.albums.Album;
+import com.example.backend.domain.BaseUser;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Producer extends BaseUser {
     private Position position;
 
     @OneToMany(mappedBy = "producer", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Album> albums = new ArrayList<>();
 
     @Builder

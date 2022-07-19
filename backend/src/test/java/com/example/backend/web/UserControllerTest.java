@@ -2,9 +2,11 @@ package com.example.backend.web;
 
 import com.example.backend.domain.Gender;
 import com.example.backend.domain.users.UserRepository;
-import com.example.backend.web.dto.UserLoginRequestDto;
-import com.example.backend.web.dto.UserSaveRequestDto;
+import com.example.backend.web.dto.LoginRequestDto;
+import com.example.backend.web.dto.ResponseDto;
 import static org.assertj.core.api.Assertions.assertThat;
+
+import com.example.backend.web.dto.UserSignupRequestDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,18 +31,10 @@ public class UserControllerTest {
     @Autowired
     private UserRepository userRepository;
 
-//    @Test
-//    public void 유저_로그인_테스트() {
-//        UserLoginRequestDto requestDto = UserLoginRequestDto.builder().password("1234").email("example1234").build();
-//        String url = "http://localhost:"+port+"/user/";
-//        ResponseEntity<HashMap> responseEntity = restTemplate.postForEntity(url, requestDto, HashMap.class);
-//        System.out.println(responseEntity.getHeaders().get("Authorization"));
-//    }
-
     @Test
     public void 유저_로그인_테스트() {
-        UserLoginRequestDto requestDto = new UserLoginRequestDto("example", "1");
-        String url = "http://localhost:"+port+"/user/";
+        LoginRequestDto requestDto = LoginRequestDto.builder().password("1").email("example").build();
+        String url = "http://localhost:"+port+"/login/";
         ResponseEntity<HashMap> responseEntity = restTemplate.postForEntity(url, requestDto, HashMap.class);
         System.out.println(responseEntity.getHeaders().get("Authorization"));
     }
@@ -48,22 +42,23 @@ public class UserControllerTest {
     @Test
     public void 유저_회원가입_테스트() throws Exception {
         // given
-        UserSaveRequestDto requestDto = UserSaveRequestDto.builder()
+        UserSignupRequestDto requestDto = UserSignupRequestDto.builder()
                 .password("1234")
-                .email("example1")
+                .email("example")
                 .name("하잉")
                 .gender(Gender.FEMALE)
                 .nickname("닉넴")
                 .photoUrl("사진경로")
                 .build();
 
-        String url = "http://localhost:"+port+"/user/registration";
+        String url = "http://localhost:"+port+"/signup/user";
 
         // when
-        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
+        ResponseEntity<ResponseDto> responseEntity = restTemplate.postForEntity(url, requestDto, ResponseDto.class);
 
         // then
         assertThat(responseEntity.getStatusCode().is2xxSuccessful());
+
     }
 
 }

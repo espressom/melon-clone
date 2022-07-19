@@ -1,7 +1,6 @@
 package com.example.backend.domain.albums;
 
 import com.example.backend.web.dto.AlbumResponseDto;
-import com.querydsl.core.Tuple;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +17,8 @@ public class AlbumRepositoryImpl implements AlbumRepositoryCustom {
 
     @Override
     public List<AlbumResponseDto> getAllAlbumsJoinedByProducer() {
-        return queryFactory.from(album)
+        return queryFactory
+                .from(album)
                 .select(Projections.constructor(AlbumResponseDto.class,
                         album.id,
                         album.name,

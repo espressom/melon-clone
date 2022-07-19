@@ -1,5 +1,7 @@
-package com.example.backend.domain.users;
+package com.example.backend.domain;
 
+import com.example.backend.domain.users.User;
+import com.example.backend.domain.users.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,7 @@ public class UserRepositoryTest {
 
     @Test
     public void 유저_생성_테스트() {
-        userRepository.save(User.builder().password("1").name("테스트").email("example").build());
+        userRepository.save(User.builder().password("1").name("테스트").email("example234234").build());
 
         List<User> users = userRepository.findAll();
 

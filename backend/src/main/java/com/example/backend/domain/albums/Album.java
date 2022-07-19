@@ -3,6 +3,8 @@ package com.example.backend.domain.albums;
 import com.example.backend.domain.BaseTime;
 import com.example.backend.domain.producers.Producer;
 import com.example.backend.domain.songs.Song;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class Album extends BaseTime {
     @Column(nullable = false, name = "album_name")
     private String name;
 
+    @JsonBackReference
     @ManyToOne(optional = false)
     @JoinColumn(name = "producer_id")
     private Producer producer;
@@ -35,6 +38,7 @@ public class Album extends BaseTime {
 
     private Date releaseDate;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
     private List<Song> songs = new ArrayList<>();
 

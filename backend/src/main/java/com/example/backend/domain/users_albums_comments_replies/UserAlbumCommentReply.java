@@ -2,7 +2,6 @@ package com.example.backend.domain.users_albums_comments_replies;
 
 import com.example.backend.domain.users.User;
 import com.example.backend.domain.users_albums_comments.UserAlbumComment;
-import com.example.backend.domain.users_songs_comments.UserSongComment;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

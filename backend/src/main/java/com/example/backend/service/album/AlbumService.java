@@ -15,9 +15,10 @@ public class AlbumService {
     private final AlbumRepository albumRepository;
 
     @Transactional
-    public List<AlbumResponseDto> getAllAlbum() {
+    public List<AlbumResponseDto> getAllAlbums() {
         return albumRepository.getAllAlbumsJoinedByProducer();
     }
 
+//    public Li
 
 }

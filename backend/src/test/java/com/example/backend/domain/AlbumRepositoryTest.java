@@ -1,9 +1,10 @@
-package com.example.backend.domain.albums;
+package com.example.backend.domain;
 
+import com.example.backend.domain.albums.Album;
+import com.example.backend.domain.albums.AlbumRepository;
 import com.example.backend.domain.producers.Producer;
 import com.example.backend.domain.producers.ProducerRepository;
 import com.example.backend.web.dto.AlbumResponseDto;
-import com.querydsl.core.Tuple;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +50,10 @@ public class AlbumRepositoryTest {
 
         albums.forEach(albumResponseDto -> {
             System.out.println("-------------------------");
-            System.out.print(albumResponseDto.getAlbumName());
-            System.out.print(albumResponseDto.getProducerName());
-            System.out.print(albumResponseDto.getReleaseDate());
+            System.out.println(albumResponseDto.getAlbumName());
+            System.out.println(albumResponseDto.getProducerName());
+            System.out.println(albumResponseDto.getReleaseDate());
+            System.out.println(albumResponseDto.getAlbumName());
         });
 
     }

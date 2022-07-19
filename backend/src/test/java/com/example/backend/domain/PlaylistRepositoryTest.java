@@ -1,5 +1,7 @@
-package com.example.backend.domain.playlists;
+package com.example.backend.domain;
 
+import com.example.backend.domain.playlists.Playlist;
+import com.example.backend.domain.playlists.PlaylistRepository;
 import com.example.backend.domain.songs.Song;
 import com.example.backend.domain.songs.SongRepository;
 import com.example.backend.domain.users_playlists.UserPlaylist;

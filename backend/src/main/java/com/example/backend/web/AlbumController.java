@@ -11,14 +11,14 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/album")
+@RequestMapping("/albums")
 public class AlbumController {
 
     private final AlbumService albumService;
 
     @GetMapping("/")
-    public List<AlbumResponseDto> getAllAlbum() {
-        return albumService.getAllAlbum();
+    public List<AlbumResponseDto> getAllAlbums() {
+        return albumService.getAllAlbums();
     }
 
 }

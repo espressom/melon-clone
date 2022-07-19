@@ -13,7 +13,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AlbumControllerTest {
+public class SongControllerTest {
 
     @LocalServerPort
     private int port;
@@ -22,10 +22,10 @@ public class AlbumControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void 전체_앨범_가져오기_테스트() {
-        String url = "http://localhost:"+port+"/albums/";
-        ResponseEntity responseEntity = restTemplate.getForEntity(url, List.class);
-        System.out.println(responseEntity.getBody().toString());
+    public void 전체_곡_가져오기_테스트() {
+        String url = "http://localhost:"+port+"/songs/";
+        restTemplate.getForEntity(url, List.class);
+//        System.out.println(responseEntity.getBody().toString());
     }
 
 }

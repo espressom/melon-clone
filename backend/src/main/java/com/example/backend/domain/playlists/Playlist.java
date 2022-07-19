@@ -1,7 +1,7 @@
 package com.example.backend.domain.playlists;
 
-import com.example.backend.domain.songs.Song;
 import com.example.backend.domain.users_playlists.UserPlaylist;
+import com.example.backend.domain.songs.Song;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

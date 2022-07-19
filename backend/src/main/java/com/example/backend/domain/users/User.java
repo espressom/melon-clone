@@ -1,8 +1,8 @@
 package com.example.backend.domain.users;
 
+import com.example.backend.domain.users_playlists.UserPlaylist;
 import com.example.backend.domain.BaseUser;
 import com.example.backend.domain.Gender;
-import com.example.backend.domain.users_playlists.UserPlaylist;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

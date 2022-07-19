@@ -1,9 +1,11 @@
-package com.example.backend.domain.users_songs_comments_replies;
+package com.example.backend.domain;
 
 import com.example.backend.domain.users.User;
 import com.example.backend.domain.users.UserRepository;
 import com.example.backend.domain.users_songs_comments.UserSongComment;
 import com.example.backend.domain.users_songs_comments.UserSongCommentRepository;
+import com.example.backend.domain.users_songs_comments_replies.UserSongCommentReply;
+import com.example.backend.domain.users_songs_comments_replies.UserSongCommentReplyRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

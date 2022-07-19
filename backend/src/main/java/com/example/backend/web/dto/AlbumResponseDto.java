@@ -1,6 +1,6 @@
 package com.example.backend.web.dto;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +8,7 @@ import java.util.Date;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class AlbumResponseDto {
 
     private Long AlbumId;
@@ -19,14 +20,4 @@ public class AlbumResponseDto {
     private Date releaseDate;
     private String photoUrl;
 
-    public AlbumResponseDto(Long albumId, String albumName, Long producerId, String producerName, String agency, String publisher, Date releaseDate, String photoUrl) {
-        this.AlbumId = albumId;
-        this.AlbumName = albumName;
-        this.producerId = producerId;
-        this.producerName = producerName;
-        this.agency = agency;
-        this.publisher = publisher;
-        this.releaseDate = releaseDate;
-        this.photoUrl = photoUrl;
-    }
 }
